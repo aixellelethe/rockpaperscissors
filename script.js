@@ -63,5 +63,6 @@ function determineWinner(playerSelection, computerSelection)
         return "Invalid input. Please choose a valid option: Rock, Paper, or Scissors.";
   }
 }
-    console.log(determineWinner(playerSelection, computerSelection));
+    alert(determineWinner(playerSelection, computerSelection));
 
+// Plays game 5 times, keeps track of scores//
