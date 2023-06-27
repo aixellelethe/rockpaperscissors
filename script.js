@@ -31,7 +31,7 @@ function getPlayerChoice(){
             return playerHand;
 
         }   else {
-            console.log("Invalid");
+            console.log("Invalid input. Please choose a valid option: Rock, Paper, or Scissors.");
             return getPlayerChoice();
         }
 }
@@ -39,30 +39,44 @@ function getPlayerChoice(){
 const playerSelection = gameArray.indexOf(getPlayerChoice());
 console.log(playerSelection);
 
-
+let playerScore = 0
+let computerScore = 0
+let playRound = 0
 
 function determineWinner(playerSelection, computerSelection)
 {
 // Returns either player choice or computer choice string in case of winner//
-    switch (true) {
-        case playerSelection === computerSelection:
+
+    if  (playerSelection === computerSelection){
         return "This is a draw! Try again.";
-        case playerSelection === 0 && computerSelection === 1:
-        return "You lose! Paper beats Rock!";
-        case playerSelection === 0 && computerSelection === 2:
-        return "You win! Rock beats Scissors!";
-        case playerSelection === 1 && computerSelection === 0:
-        return "You win! Paper beats Rock!";
-        case playerSelection === 1 && computerSelection === 2:
-        return "You lose, Scissors beats Paper!";
-        case playerSelection === 2 && computerSelection === 0:
-        return "You lose, Rock beats Scissors!";
-        case playerSelection === 2 && computerSelection === 1:
-        return "You win! Scissors beats paper!";
-        default:
-        return "Invalid input. Please choose a valid option: Rock, Paper, or Scissors.";
+    }
+
+    if (
+        (playerSelection === 0 && computerSelection === 2) || 
+        (playerSelection === 1 && computerSelection === 0) || 
+        (playerSelection === 2 && computerSelection === 1) 
+        ){
+            playerScore++;
+            return "You win!"
+        }
+    if (
+        (playerSelection === 0 && computerSelection === 1) ||
+        (playerSelection === 1 && computerSelection === 2) ||
+        (playerSelection === 2 && computerSelection === 0)
+        
+        ){
+            computerScore++;
+            return "You lose!"
+
+        }
   }
+console.log(computerScore); 
+console.log(playerScore);
+
+function gameOver(){
+    return playerScore === 5 || computerScore == 5
 }
+
     alert(determineWinner(playerSelection, computerSelection));
 
 // Plays game 5 times, keeps track of scores//
