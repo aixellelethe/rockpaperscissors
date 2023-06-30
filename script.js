@@ -46,36 +46,41 @@ let playRound = 0
 function determineWinner(playerSelection, computerSelection)
 {
 // Returns either player choice or computer choice string in case of winner//
-
-    if  (playerSelection === computerSelection){
-        return "This is a draw! Try again.";
-    }
-
-    if (
-        (playerSelection === 0 && computerSelection === 2) || 
-        (playerSelection === 1 && computerSelection === 0) || 
-        (playerSelection === 2 && computerSelection === 1) 
-        ){
-            playerScore++;
-            return "You win!"
+    if ((playRound <=5)){
+        if  (playerSelection === computerSelection){
+            return "This is a draw! Try again.";
         }
-    if (
-        (playerSelection === 0 && computerSelection === 1) ||
-        (playerSelection === 1 && computerSelection === 2) ||
-        (playerSelection === 2 && computerSelection === 0)
-        
-        ){
-            computerScore++;
-            return "You lose!"
 
-        }
-  }
+        if (
+            (playerSelection === 0 && computerSelection === 2) || 
+            (playerSelection === 1 && computerSelection === 0) || 
+            (playerSelection === 2 && computerSelection === 1) 
+            ){
+                playerScore++
+                playRound++
+                return "You win!"
+            }
+        if (
+            (playerSelection === 0 && computerSelection === 1) ||
+            (playerSelection === 1 && computerSelection === 2) ||
+            (playerSelection === 2 && computerSelection === 0)
+            
+            ){
+                computerScore++
+                playRound++
+                return "You lose!"
+                
+
+            }
+    }    
+ }
+
+let result= determineWinner(playerSelection, computerSelection);
+
+console.log(result);
 console.log(computerScore); 
 console.log(playerScore);
-
-function gameOver(){
-    return playerScore === 5 || computerScore == 5
-}
+console.log(playRound);
 
     alert(determineWinner(playerSelection, computerSelection));
 
