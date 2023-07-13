@@ -14,9 +14,11 @@ function getComputerChoice(){
 }
 
 //Log computer selection//
-const computerSelection = gameArray.indexOf(getComputerChoice());
-console.log(computerSelection);
+console.log(getComputerChoice());
 
+/* let playerScore = 0
+let computerScore = 0
+let playRound = 0
 
 //Get a choice from the player//
 
@@ -39,14 +41,11 @@ function getPlayerChoice(){
 const playerSelection = gameArray.indexOf(getPlayerChoice());
 console.log(playerSelection);
 
-let playerScore = 0
-let computerScore = 0
-let playRound = 0
 
 function determineWinner(playerSelection, computerSelection)
 {
 // Returns either player choice or computer choice string in case of winner//
-    if ((playRound <=5)){
+    if ((playRound < 5 )){
         if  (playerSelection === computerSelection){
             return "This is a draw! Try again.";
         }
@@ -56,32 +55,25 @@ function determineWinner(playerSelection, computerSelection)
             (playerSelection === 1 && computerSelection === 0) || 
             (playerSelection === 2 && computerSelection === 1) 
             ){
-                playerScore++
-                playRound++
-                return "You win!"
+                playerScore++;
+                playRound++;
+                
+                return alert(`You win!  ${playerSelection} beats ${computerSelection}!`)
             }
+    
         if (
             (playerSelection === 0 && computerSelection === 1) ||
             (playerSelection === 1 && computerSelection === 2) ||
             (playerSelection === 2 && computerSelection === 0)
-            
-            ){
-                computerScore++
-                playRound++
-                return "You lose!"
-                
-
+        )
+            {
+                computerScore++;
+                playRound++;
+                return alert(`You lose! ${computerSelection} beats ${playerSelection}!`)
             }
-    }    
+     }    
  }
 
 let result= determineWinner(playerSelection, computerSelection);
 
-console.log(result);
-console.log(computerScore); 
-console.log(playerScore);
-console.log(playRound);
-
-    alert(determineWinner(playerSelection, computerSelection));
-
-// Plays game 5 times, keeps track of scores//
+game(); */
