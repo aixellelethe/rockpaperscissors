@@ -8,17 +8,35 @@
     <title>Key Lock Chest</title>
 </head>
 <body>
-    <div class="title container">
+    <div class="title">
         <h1> Key Lock Chest </h1>
     </div>
 
-    <div class="rules container">
+    <div class="rules">
         <p>The key unlocks the lock. <br> The lock secures the chest.<br> The chest hides the key. <br>What does that mean for you and me?</p>
         <p>First to 5 wins.</p>
     </div>
-    <div class="result container">
+    <div class="results">
+        <div id="resultmsgbox">
+            
+        </div>
+        <div class="playerscorebox">
+            <p id="playerscore">Your Score: 0</p>
+        </div>
+        <div class="computerscorebox">
+            <p id="computerscore">Computer Score: 0</p>
+        </div>
     </div>
-    <div class="choices container">
+    <div class="choices">
+       <div class="key container">
+            <img src="images/key.png" id="keybtn">
+        </div>
+       <div class="lock container">
+            <img src="images/lock.png" id="lockbtn">
+        </div>
+        <div class="chest container">
+            <img src="images/chest.png" id="chestbtn">
+        </div>
     </div>
 </body>
 <script src="script.js"></script>

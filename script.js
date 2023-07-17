@@ -1,79 +1,102 @@
-//Rock Paper Scissors//
+// Key Lock Chest
+
+// Scores and Array
+
+let playerScore = 0;
+let computerScore = 0;
+let roundCount = 0;
+let roundWinner = '';
+const gameArray = ['key','lock','chest'];
+
+// Choices
+let computerChoice = '';
+let playerChoice ='';
 
 
-//Set the choice array//
-const gameArray= ["rock", "paper", "scissors"];
+// Computer Choice
 
-//Get a random selection of rock paper scissors from computer using an array//
-//Using math floor to ensure correct integers, and then random based on the array length//
-
-function getComputerChoice(){
+function setComputerChoice(){
 
     const randomIndex = Math.floor(Math.random()* gameArray.length);
-    return gameArray[randomIndex];
+    computerChoice = gameArray[randomIndex];
 }
 
-//Log computer selection//
-console.log(getComputerChoice());
+// UI
+const keybtn = document.getElementById('keybtn');
+const lockbtn = document.getElementById('lockbtn');
+const chestbtn = document.getElementById('chestbtn');
+const playerScoreTxt = document.getElementById('playerscore');
+const computerScoreTxt = document.getElementById('computerscore');
+const resultDiv = document.getElementById('resultmsgbox');
+const resultMsg = document.createElement('p');
 
-/* let playerScore = 0
-let computerScore = 0
-let playRound = 0
+// Event Listeners
 
-//Get a choice from the player//
 
-// Format choice, check to see if its valid, then give value based on gameArray//
+  keybtn.addEventListener('click', event => {
+    playerChoice = 'key';
+    determineWinner();
+  });
 
-function getPlayerChoice(){
+  lockbtn.addEventListener('click', event => {
+    playerChoice = 'lock';
+    determineWinner();
+  });
 
-    let playerHandCheck= prompt("Rock, paper or scissors?");
-        playerHand = playerHandCheck?.toLowerCase();
+  chestbtn.addEventListener('click', event => {
+    playerChoice = 'chest';
+    determineWinner();
+  });
 
-        if (playerHand === "rock" || playerHand === "paper" || playerHand ==="scissors"){
-            return playerHand;
+//Game
+setComputerChoice();
 
-        }   else {
-            console.log("Invalid input. Please choose a valid option: Rock, Paper, or Scissors.");
-            return getPlayerChoice();
-        }
+function determineWinner(){
+  console.log(playerChoice);
+  console.log(computerChoice);
+ 
+    if (playerChoice === computerChoice){
+      resultMsg.textContent = 'You tied! No points awarded this round';
+      resultDiv.appendChild(resultMsg);
+    }
+    else if
+    (playerChoice === 'key' && computerChoice === 'lock' ||
+    playerChoice === 'lock' && computerChoice === 'chest' ||
+    playerChoice === 'chest' && computerChoice === 'key'){
+      resultMsg.textContent = `You won! ${playerChoice} beats ${computerChoice}!`;
+      resultDiv.appendChild(resultMsg);
+      playerScore++;
+    }
+    else{
+      resultMsg.textContent = `You lose. ${computerChoice} beats ${playerChoice}!`;
+      resultDiv.appendChild(resultMsg);
+      computerScore++;
+    }
+      roundCount++;
+      console.log(roundCount);
+      newRound();
+      console.log(playerScore);
+      console.log(computerScore);
 }
-// Log player selection//
-const playerSelection = gameArray.indexOf(getPlayerChoice());
-console.log(playerSelection);
 
+//new round
+  function newRound(){
+    if(playerScore >= 5 || computerScore >= 5){
+      gameOver();
+  }
+  else{
+    resultMsg.textContent += `New round, make another choice.`;
+    setComputerChoice();
+  }
+}
 
-function determineWinner(playerSelection, computerSelection)
-{
-// Returns either player choice or computer choice string in case of winner//
-    if ((playRound < 5 )){
-        if  (playerSelection === computerSelection){
-            return "This is a draw! Try again.";
-        }
+//Game Over
 
-        if (
-            (playerSelection === 0 && computerSelection === 2) || 
-            (playerSelection === 1 && computerSelection === 0) || 
-            (playerSelection === 2 && computerSelection === 1) 
-            ){
-                playerScore++;
-                playRound++;
-                
-                return alert(`You win!  ${playerSelection} beats ${computerSelection}!`)
-            }
-    
-        if (
-            (playerSelection === 0 && computerSelection === 1) ||
-            (playerSelection === 1 && computerSelection === 2) ||
-            (playerSelection === 2 && computerSelection === 0)
-        )
-            {
-                computerScore++;
-                playRound++;
-                return alert(`You lose! ${computerSelection} beats ${playerSelection}!`)
-            }
-     }    
- }
-
-let result= determineWinner(playerSelection, computerSelection);
-
-game(); */
+function gameOver(){
+  if( playerScore === 5){
+    alert('You Win!');
+  }
+  else{
+    alert('You lose!');
+  }
+}
