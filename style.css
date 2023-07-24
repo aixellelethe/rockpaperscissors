@@ -1,0 +1,151 @@
+
+/*CSS*/ 
+
+:root{
+    /* Colors */
+
+    --primary-pink: hsl(310, 76%, 37%);
+    --primary-indigo: hsl(259, 84%, 19%);
+    --primary-green: hsl(186, 56%, 22%);
+
+    --accent-seafoam: hsl(163, 56%, 66%);
+    --accent-lightgreen: hsl(158, 43%, 74%);
+
+    --neutral-white: hsl(0, 0%, 100%);
+    --neutral-gray: hsl(214, 3%, 41%);
+
+    --bkgrd-primary: hsl(277, 31%, 11%);
+    --bkgrd-secondary: hsl(258, 78%, 14%);
+
+    --primary-grad: -webkit-linear-gradient(320deg, var(--primary-pink) 0%, var(--primary-green) 35%,  var(--primary-indigo) 100%);
+    --text-grad:    -webkit-linear-gradient(320deg, var(--primary-pink) 0%, var(--primary-green) 35%, var(--primary-pink) 100%);
+
+    /* Fonts */
+
+    --ff-primary: 'Ysabeau Infant', sans-serif;
+
+    --ff-body: var(--ff-primary);
+    --ff-heading: var(--ff-primary);
+
+    --fs-16px: 1.6rem;
+    --fs-21px: 2.1rem;
+    --fs-32px: 3.2rem;
+    --fs-36px: 3.6rem;
+    --fs-48px: 4.8rem;
+
+    --fs-body: var(--fs-32px);
+    --fs-nav: var(--fs-16px);
+    --fs-button: var(--fs-16px);
+    --fs-heading: var(--fs-48px);
+    --fs-heading2: var(--fs-36px);
+}
+
+
+/* // https://piccalil.li/blog/a-modern-css-reset */
+/* using this as a baseline, made a few changes based on learning -ash*/
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+/* changed this to include all elements, and everything inherits fonts */
+*{
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html,
+body{
+    min-height: 100%;
+    margin: auto;
+}
+
+
+/* This is to set the default size to 10px, easy math for rem font size -ash */
+html{
+    font-size: 62.5%;
+}
+
+/* Set core body defaults */
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.2;
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+  color: var(--neutral-white);
+  background: var(--bkgrd-primary);
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+ 
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media screen and (max-width: 1000px){
+  .flexcontainer {
+    flex-direction: column;
+  }
+}
+
+/*Utility Classes*/
+
+/*Color & UI sets*/
+
+p.text-primary{
+  color: white;
+  font-family: (var(--ff-primary));
+  
+}
+
+h1{
+  font-size: var(--fs-48px);
+}
